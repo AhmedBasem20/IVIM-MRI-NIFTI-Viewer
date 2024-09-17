@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIfTI Viewer</title>
+    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+    <style>
+        #canvas-container {
+            display: flex;
+        }
+        canvas {
+            border: 1px solid black;
+            margin-right: 10px;
+            width: 900px;
+        }
+    </style>
+</head>
+<body>
+    <input type="file" id="nifti-file-input" />
+    <div id="plot"></div> <!-- This div will hold the plot -->
+    <canvas id="original-canvas"></canvas>
+    <p id="voxel-info">Click on a voxel to view details...</p>
+
+    <script src="./dist/bundle.js"></script>
+</body>
+</html>
