@@ -1,27 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NIfTI Viewer</title>
-    <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
-    <style>
-        #canvas-container {
-            display: flex;
-        }
-        canvas {
-            border: 1px solid black;
-            margin-right: 10px;
-            width: 900px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>NIfTI MRI Viewer</title>
+  <script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+  <style>
+    .canvas-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 5px;
+    }
+
+    .canvas-label {
+      margin-top: 5px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    #canvas-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
 </head>
 <body>
     <input type="file" id="nifti-file-input" />
-    <div id="plot"></div> <!-- This div will hold the plot -->
-    <canvas id="original-canvas"></canvas>
-    <p id="voxel-info">Click on a voxel to view details...</p>
-
-    <script src="./dist/bundle.js"></script>
-</body>
+    <div id="voxel-info"></div>
+    <div id="canvas-wrapper">
+      <div class="canvas-container">
+        <canvas id="axial-canvas" style="border: 1px solid black;"></canvas>
+        <div class="canvas-label">Axial View</div>
+      </div>
+      <div class="canvas-container">
+        <canvas id="coronal-canvas" style="border: 1px solid black;"></canvas>
+        <div class="canvas-label">Coronal View</div>
+      </div>
+      <div class="canvas-container">
+        <canvas id="sagittal-canvas" style="border: 1px solid black;"></canvas>
+        <div class="canvas-label">Sagittal View</div>
+      </div>
+    </div>
+    <div id="plot"></div>
+    <script src="dist/bundle.js"></script>
+  </body>
 </html>
